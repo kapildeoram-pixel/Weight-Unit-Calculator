@@ -16,59 +16,60 @@
 <body class="bg-slate-50 min-h-screen flex items-center justify-center p-4">
 
     <div class="print-card bg-white shadow-xl rounded-2xl p-6 w-full max-w-md border border-slate-200">
-        <!-- <h2 class="text-xl font-bold text-slate-800 mb-6 text-center border-b pb-4">Weight Unit Calculator</h2> -->
-        
-        <!-- Vendor Section -->
         <div class="mb-6">
             <h3 class="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-2">Vendor Point</h3>
             <div class="space-y-3 bg-blue-50/40 p-4 rounded-xl border border-blue-100/80">
                 <div class="flex justify-between items-center">
                     <label class="text-slate-600 font-medium text-sm">Unit</label>
-                    <select id="vendorUnit" onchange="calculatePrice()" class="bg-white border border-slate-300 rounded-lg px-2 py-1 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="Kg" selected>Kg</option>
-                        <option value="g">g</option>
+                    <select id="vendorUnit" class="bg-white border border-slate-300 rounded-lg px-2 py-1 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="Kg">Kg</option>
+                        <option value="g" selected>g</option>
                     </select>
                 </div>
                 <div class="flex justify-between items-center">
                     <label class="text-slate-600 font-medium text-sm">Quantity</label>
-                    <input type="number" id="vendorQty" value="1" step="any" oninput="calculatePrice()" class="w-24 bg-white border border-slate-300 rounded-lg px-2 py-1 text-sm text-right font-medium focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="number" id="vendorQty" value="250" step="any" class="w-24 bg-white border border-slate-300 rounded-lg px-2 py-1 text-sm text-right font-medium focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
                 <div class="flex justify-between items-center">
                     <label class="text-slate-600 font-medium text-sm">Price</label>
-                    <input type="number" id="vendorPrice" value="0.05" step="any" oninput="calculatePrice()" class="w-24 bg-white border border-slate-300 rounded-lg px-2 py-1 text-sm text-right font-medium focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="number" id="vendorPrice" value="50" step="any" class="w-24 bg-white border border-slate-300 rounded-lg px-2 py-1 text-sm text-right font-medium focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
             </div>
         </div>
 
-        <!-- Customer Section -->
         <div class="mb-6">
             <h3 class="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-2">Customer Point</h3>
             <div class="space-y-3 bg-emerald-50/40 p-4 rounded-xl border border-emerald-100/80">
                 <div class="flex justify-between items-center">
                     <label class="text-slate-600 font-medium text-sm">Unit</label>
-                    <select id="customerUnit" onchange="calculatePrice()" class="bg-white border border-slate-300 rounded-lg px-2 py-1 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                        <option value="Kg" selected>Kg</option>
-                        <option value="g">g</option>
+                    <select id="customerUnit" class="bg-white border border-slate-300 rounded-lg px-2 py-1 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        <option value="Kg">Kg</option>
+                        <option value="g" selected>g</option>
                     </select>
                 </div>
                 <div class="flex justify-between items-center">
                     <label class="text-slate-600 font-medium text-sm">Quantity</label>
-                    <input type="number" id="customerQty" value="2" step="any" oninput="calculatePrice()" class="w-24 bg-white border border-slate-300 rounded-lg px-2 py-1 text-sm text-right font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    <input type="number" id="customerQty" value="100" step="any" class="w-24 bg-white border border-slate-300 rounded-lg px-2 py-1 text-sm text-right font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500">
                 </div>
                 <div class="flex justify-between items-center border-t border-emerald-200/60 pt-3 mt-2">
                     <label class="text-slate-800 font-bold text-sm">Price (Result)</label>
-                    <span id="resultPrice" class="text-xl font-extrabold text-emerald-700">0.10</span>
+                    <span id="resultPrice" class="text-xl font-extrabold text-emerald-700">20.00</span>
                 </div>
             </div>
         </div>
 
-        <!-- Print Action -->
-        <button onclick="window.print()" class="no-print w-full bg-slate-800 hover:bg-slate-900 text-white font-medium py-2.5 px-4 rounded-xl transition-colors duration-150 shadow-sm flex items-center justify-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-            </svg>
-            Save & Print
-        </button>
+        <div class="space-y-2">
+            <button onclick="calculatePrice()" class="no-print w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 px-4 rounded-xl transition-colors duration-150 shadow-sm flex items-center justify-center gap-2">
+                Calculate
+            </button>
+            
+            <button onclick="refreshData()" class="no-print w-full bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium py-2.5 px-4 rounded-xl transition-colors duration-150 shadow-sm flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.253 8H18" />
+                </svg>
+                Refresh
+            </button>
+        </div>
     </div>
 
     <script>
@@ -87,7 +88,6 @@
                 return;
             }
 
-            // Exactly implements formula: =IF(AND(C2="g",C7="Kg"),(C4/C3)*1000*C8,IF(AND(C2="g",C7="g"),(C4/C3)*100*(C8/100),IF(AND(C2="Kg",C7="g"),(C4/1000)*C8,IF(AND(C2="Kg",C7="Kg"),C4*C8,"Error"))))
             if (c2 === "g" && c7 === "Kg") {
                 result = (c4 / c3) * 1000 * c8;
             } else if (c2 === "g" && c7 === "g") {
@@ -101,8 +101,37 @@
             document.getElementById('resultPrice').innerText = result.toFixed(2);
         }
 
-        // Initialize view matching spreadsheet default metrics
-        calculatePrice();
+        function refreshData() {
+            // Reset numerical input values to zero
+            document.getElementById('vendorQty').value = 0;
+            document.getElementById('vendorPrice').value = 0;
+            document.getElementById('customerQty').value = 0;
+            
+            // Reset dropdowns back to Kg default
+            document.getElementById('vendorUnit').value = "Kg";
+            document.getElementById('customerUnit').value = "Kg";
+            
+            // Clear the result display screen
+            document.getElementById('resultPrice').innerText = "0.00";
+            
+            // Clear the saved local storage draft
+            localStorage.removeItem('calculator_saved_draft');
+        }
+
+        function loadSavedDraft() {
+            const savedData = localStorage.getItem('calculator_saved_draft');
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                document.getElementById('vendorUnit').value = data.vendorUnit;
+                document.getElementById('vendorQty').value = data.vendorQty;
+                document.getElementById('vendorPrice').value = data.vendorPrice;
+                document.getElementById('customerUnit').value = data.customerUnit;
+                document.getElementById('customerQty').value = data.customerQty;
+                calculatePrice(); 
+            }
+        }
+
+        window.onload = loadSavedDraft;
     </script>
 </body>
 </html>
