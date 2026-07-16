@@ -16,7 +16,7 @@
 <body class="bg-slate-50 min-h-screen flex items-center justify-center p-4">
 
     <div class="print-card bg-white shadow-xl rounded-2xl p-6 w-full max-w-md border border-slate-200">
-        <h2 class="text-xl font-bold text-slate-800 mb-6 text-center border-b pb-4">Weight Unit Calculator</h2>
+        <!-- <h2 class="text-xl font-bold text-slate-800 mb-6 text-center border-b pb-4">Weight Unit Calculator</h2> -->
         
         <!-- Vendor Section -->
         <div class="mb-6">
